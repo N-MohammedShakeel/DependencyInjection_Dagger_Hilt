@@ -4,5 +4,13 @@ import dagger.Component
 
 @Component(modules = [ SimCardModule::class, MemoryCardModule::class , NCBatteryModule::class])
 interface SmartphoneComponent {
-    fun getSmartphone(): Smartphone
+
+    // Add this method to provide the Smartphone instance
+    //    fun getSmartphone(): Smartphone
+
+    // (or)
+
+    //Best practices
+    // Add this method to inject dependencies into MainActivity
+    fun inject(mainactivty: MainActivity)
 }
