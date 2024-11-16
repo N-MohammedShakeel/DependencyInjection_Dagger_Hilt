@@ -12,20 +12,27 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //Using Application Class for Dagger Dependency Injection
+        (application as SmartphoneApplication).smartphoneComponent
+            .inject(this)
+        smartphone.makeaCallRecording()
+
+
+
 
         // Set up Dagger component and inject dependencies . with State of a module
-        DaggerSmartphoneComponent.builder()
-            .memoryCardModule(MemoryCardModule(1000))
-            .build()
-            .inject(this)
-        smartphone.powerOn()
+//        DaggerSmartphoneComponent.builder()
+//            .memoryCardModule(MemoryCardModule(1000))
+//            .build()
+//            .inject(this)
+//            .makeaCallRecording()
+
 
 
 //        // Set up Dagger component and inject dependencies
 //       DaggerSmartphoneComponent.create() // Dagger-generated class
 //           .inject(this) // Field Injection
-//        smartphone.powerOn()
-
+//           .makeaCallRecording()
 
 
         //without field Injection using getter functio of the smarphone class from
